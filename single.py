@@ -139,6 +139,7 @@ def assign_orders(orders, nextcouriers, order_number, order_accepted, assignment
             nextcouriers
         ):  # Если есть ближайшие доступные курьеры, то ищем ту который придет первым
             for courier in nextcouriers:
+                #duration = get_duration_from_2gis(order["from"], courier["location"])
                 duration = get_duration_from_osrm(order["from"], courier["location"])
                 print(f"Курьер № {courier['id']}, {duration}")
                 if duration is not None and duration < min_duration:
